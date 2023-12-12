@@ -1,15 +1,32 @@
 <script>
+import ComponentSearch from './ComponentSearch.vue';
+import ComponentCard from './ComponentCard.vue';
 export default {
     components: {
+        ComponentSearch,
+        ComponentCard
     },
     data() {
         return {
+
         }
 
     },
 }
 </script>
 
-<template></template>
+<template>
+    <main>
+        <div class="container">
+            <ComponentSearch />
+            <ComponentCard />
+        </div>
+    </main>
+</template>
+<style scoped lang="scss">
+@use'../assets/scss/partial/variables' as *;
 
-<style></style>
+main {
+    background-color: $container-bg-color;
+}
+</style>
