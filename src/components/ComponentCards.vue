@@ -26,7 +26,7 @@ export default {
             </div>
             <div class="text">
                 <h5>{{ card.name }}</h5>
-                <p>{{ card.type }}</p>
+                <p>{{ card.archetype }}</p>
             </div>
         </div>
     </div>

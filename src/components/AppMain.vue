@@ -1,13 +1,13 @@
 <script>
 import ComponentSearch from './ComponentSearch.vue';
-import ComponentCard from './ComponentCard.vue';
+import ComponentCards from './ComponentCards.vue';
 import { store } from '../js/store'
 import axios from 'axios'
 export default {
     name: "appMain",
     components: {
         ComponentSearch,
-        ComponentCard
+        ComponentCards
     },
     data() {
         return {
@@ -15,16 +15,16 @@ export default {
         }
 
     },
-    methods: {
+    computed: {
         cards() {
-            axios.get(store.apiUrl).then((response) => {
-                store.card = response.data.data
+            axios.get(this.store.apiUrl + this.store.searchText).then((response) => {
+                this.store.card = response.data.data
                 console.log(response.data.data)
             })
         }
     },
     created() {
-        this.cards()
+        this.cards
     }
 }
 </script>
@@ -32,8 +32,8 @@ export default {
 <template>
     <main>
         <div class="container">
-            <ComponentSearch />
-            <ComponentCard />
+            <ComponentSearch @search="this.cards" />
+            <ComponentCards />
         </div>
     </main>
 </template>
