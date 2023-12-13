@@ -13,6 +13,6 @@ export default {
 </script>
 
 <template>
-    <h3>ho trovato 20 carte</h3>
+    <h3>Ho trovato {{ store.card.length }} carte</h3>
 </template>
 <style scoped lang="scss"></style>
