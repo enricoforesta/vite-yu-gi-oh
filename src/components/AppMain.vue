@@ -1,6 +1,8 @@
 <script>
 import ComponentSearch from './ComponentSearch.vue';
 import ComponentCard from './ComponentCard.vue';
+import { store } from '../js/store'
+import axios from 'axios'
 export default {
     name: "appMain",
     components: {
@@ -9,10 +11,21 @@ export default {
     },
     data() {
         return {
-
+            store
         }
 
     },
+    methods: {
+        cards() {
+            axios.get(store.apiUrl).then((response) => {
+                store.card = response.data.data
+                console.log(response.data.data)
+            })
+        }
+    },
+    created() {
+        this.cards()
+    }
 }
 </script>
 

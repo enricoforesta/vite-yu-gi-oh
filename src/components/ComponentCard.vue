@@ -1,6 +1,5 @@
 <script>
 import { store } from '../js/store'
-import axios from 'axios'
 import ComponentFound from './ComponentFound.vue'
 export default {
     name: "card",
@@ -12,12 +11,7 @@ export default {
             store
         }
     },
-    created() {
-        axios.get(store.apiUrl).then((response) => {
-            store.card = response.data.data
-            console.log(response.data.data)
-        })
-    }
+
 }
 </script>
 
