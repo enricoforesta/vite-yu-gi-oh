@@ -1,5 +1,6 @@
 <script>
 export default {
+    name: "search",
     components: {
     },
     data() {
