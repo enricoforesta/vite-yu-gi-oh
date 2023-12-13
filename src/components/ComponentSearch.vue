@@ -11,18 +11,11 @@ export default {
         }
 
     },
-    computed: {
-        search() {
-            return axios.get(this.store.apiUrlArchetype).then((response) => {
-                this.store.archetype = response.data
-                console.log(response.data[0].archetype_name)
-            })
-        }
-
-
-    },
     created() {
-        this.search
+        axios.get(this.store.apiUrlArchetype).then((response) => {
+            this.store.archetype = response.data
+            console.log(response.data[0].archetype_name)
+        })
     }
 }
 </script>

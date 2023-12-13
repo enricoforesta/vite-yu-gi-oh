@@ -15,16 +15,20 @@ export default {
         }
 
     },
-    computed: {
+    methods: {
         cards() {
-            axios.get(this.store.apiUrl + this.store.searchText).then((response) => {
+            console.log(this.store.searchText);
+            const myUrl = `${this.store.apiUrl}&archetype=${this.store.searchText}`
+            console.log(myUrl)
+
+            axios.get(myUrl).then((response) => {
                 this.store.card = response.data.data
                 console.log(response.data.data)
             })
         }
     },
     created() {
-        this.cards
+        this.cards()
     }
 }
 </script>
@@ -32,7 +36,7 @@ export default {
 <template>
     <main>
         <div class="container">
-            <ComponentSearch @search="this.cards" />
+            <ComponentSearch @search="cards" />
             <ComponentCards />
         </div>
     </main>
