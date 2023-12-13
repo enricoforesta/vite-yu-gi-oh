@@ -1,6 +1,7 @@
 <script>
 import ComponentLogo from './ComponentLogo.vue'
 export default {
+    name: "appHeader",
     components: {
         ComponentLogo,
     },

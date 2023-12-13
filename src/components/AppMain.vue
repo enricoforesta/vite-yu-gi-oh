@@ -2,6 +2,7 @@
 import ComponentSearch from './ComponentSearch.vue';
 import ComponentCard from './ComponentCard.vue';
 export default {
+    name: "appMain",
     components: {
         ComponentSearch,
         ComponentCard

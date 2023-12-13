@@ -1,6 +1,6 @@
 <script>
 export default {
-    name: "Logo Yu-gi-oh",
+    name: "Logo Yu gi oh",
     data() {
         return {
             title: "Yu-Gi-Oh Api"
