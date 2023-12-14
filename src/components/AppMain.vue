@@ -18,13 +18,25 @@ export default {
     methods: {
         cards() {
             console.log(this.store.searchText);
-            const myUrl = `${this.store.apiUrl}&archetype=${this.store.searchText}`
-            console.log(myUrl)
+            if (this.store.searchText !== "") {
+                const myUrl = `${this.store.apiUrl}&archetype=${this.store.searchText}`
+                console.log(myUrl)
 
-            axios.get(myUrl).then((response) => {
-                this.store.card = response.data.data
-                console.log(response.data.data)
-            })
+                axios.get(myUrl).then((response) => {
+                    this.store.card = response.data.data
+                    console.log(response.data.data)
+                })
+            } else {
+                const myUrl = `${this.store.apiUrl}`
+                console.log(myUrl)
+
+                axios.get(myUrl).then((response) => {
+                    this.store.card = response.data.data
+                    console.log(response.data.data)
+                })
+            }
+
+
         }
     },
     created() {
@@ -36,7 +48,7 @@ export default {
 <template>
     <main>
         <div class="container">
-            <ComponentSearch @search="cards" />
+            <ComponentSearch @search="cards()" />
             <ComponentCards />
         </div>
     </main>
